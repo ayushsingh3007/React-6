@@ -1,13 +1,14 @@
 import React from 'react';
+import { StoreProvider } from './Store/Store'; // Adjust the path as needed
 import Navbar from './RouteCompo/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <StoreProvider> {/* Add StoreProvider here */}
+    <StoreProvider>
+      <div className="App">
         <Navbar/>
-      </StoreProvider>
-    </div>
+      </div>
+    </StoreProvider>
   );
 }
 
