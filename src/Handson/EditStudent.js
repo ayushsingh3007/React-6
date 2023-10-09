@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {Store} from "../Store/Store";
+import Store from "../Store/Store";
 
 const EditStudent = () => {
   const navigate = useNavigate();
