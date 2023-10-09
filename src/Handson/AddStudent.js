@@ -7,6 +7,7 @@ const AddStudent = () => {
     Age: "",
     Course: "",
     Batch: "",
+    Contact: "Edit", // Add Contact field with default value "Edit"
   });
 
   const { data, dataFunc } = useContext(Store);
@@ -26,6 +27,7 @@ const AddStudent = () => {
       Age: "",
       Course: "",
       Batch: "",
+      Contact: "Edit", // Reset Contact field after adding
     });
   };
 
