@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Store } from "../Store/Store";
 
 const AddStudent = () => {
@@ -7,7 +7,7 @@ const AddStudent = () => {
     Age: "",
     Course: "",
     Batch: "",
-    Contact: "Edit", // Add Contact field with default value "Edit"
+    Contact: "Edit",
   });
 
   const { data, dataFunc } = useContext(Store);
@@ -27,7 +27,7 @@ const AddStudent = () => {
       Age: "",
       Course: "",
       Batch: "",
-      Contact: "Edit", // Reset Contact field after adding
+      Contact: "Edit",
     });
   };
 
