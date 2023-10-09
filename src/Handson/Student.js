@@ -27,7 +27,7 @@ const Student = () => {
             <th>NAME</th>
             <th>BATCH</th>
             <th>COURSE</th>
-            
+            <th>CONTACT</th>
             <th>Edit</th>
           </tr>
         </thead>
