@@ -61,7 +61,12 @@ const AddStudent = () => {
         value={newStudent.Batch}
         onChange={handleChange}
       />
-      <button onClick={handleAddStudent}>Add Student</button>
+      <button onClick={() => {
+        console.log("Button clicked");
+        handleAddStudent();
+      }}>
+        Add Student
+      </button>
     </>
   );
 };
