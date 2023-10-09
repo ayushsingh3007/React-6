@@ -40,9 +40,7 @@ const Student = () => {
                 <td>{item.Course}</td>
                 <td>{item.Contact}</td>
                 <td>
-                  <NavLink to="#" onClick={() => handleEdit(index)}>
-                    Edit
-                  </NavLink>
+                  <button onClick={() => handleEdit(index)}>Edit</button>
                 </td>
               </tr>
             );
