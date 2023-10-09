@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Store from "../Store/Store";
+import { Store } from "../Store/Store";
 
 const AddStudent = () => {
   const [newStudent, setNewStudent] = useState({
@@ -9,7 +9,7 @@ const AddStudent = () => {
     Batch: "",
   });
 
-  const contextData = useContext(Store);
+  const { data, dataFunc } = useContext(Store);
 
   const handleChange = (e) => {
     setNewStudent({
@@ -19,7 +19,8 @@ const AddStudent = () => {
   };
 
   const handleAddStudent = () => {
-    contextData.dataFunc([...contextData.data, newStudent]);
+    const updatedData = [...data, newStudent];
+    dataFunc(updatedData);
     setNewStudent({
       Name: "",
       Age: "",
