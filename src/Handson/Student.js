@@ -1,23 +1,13 @@
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Store } from "../Store/Store"; // Import Store from the correct path
+import { Store } from "../Store/Store";
 
 const Student = () => {
   const displayData = useContext(Store);
-  const navigate = useNavigate();
-
-  function handleEdit(index) {
-    navigate(`/edit/${index}`);
-  }
-
-  function handleAddUser() {
-    navigate("/add");
-  }
 
   return (
     <>
       <h1>Student Page</h1>
-      <button id="btn-1" onClick={handleAddUser}>
+      <button id="btn-1" onClick={() => {}}>
         Add user
       </button>
 
@@ -28,7 +18,6 @@ const Student = () => {
             <th>BATCH</th>
             <th>COURSE</th>
             <th>CONTACT</th>
-            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -38,10 +27,7 @@ const Student = () => {
                 <td>{item.Name}</td>
                 <td>{item.Batch}</td>
                 <td>{item.Course}</td>
-                <td>{item.Contact}</td> {/* Add this line */}
-                <td>
-                  <button onClick={() => handleEdit(index)}>Edit</button>
-                </td>
+                <td>{item.Contact}</td>
               </tr>
             );
           })}
