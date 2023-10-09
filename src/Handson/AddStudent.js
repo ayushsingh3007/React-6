@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
 import { Store } from "../Store/Store";
 
 const AddStudent = () => {
@@ -61,12 +61,7 @@ const AddStudent = () => {
         value={newStudent.Batch}
         onChange={handleChange}
       />
-      <button onClick={() => {
-        console.log("Button clicked");
-        handleAddStudent();
-      }}>
-        Add Student
-      </button>
+      <button onClick={handleAddStudent}>Add Student</button>
     </>
   );
 };
