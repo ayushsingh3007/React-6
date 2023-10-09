@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import Store from "../Store/Store";
+import { Store } from "../Store/Store"; // Import Store from the correct path
 
 const Student = () => {
   const displayData = useContext(Store);
@@ -38,7 +38,7 @@ const Student = () => {
                 <td>{item.Name}</td>
                 <td>{item.Batch}</td>
                 <td>{item.Course}</td>
-                <td>{item.Contact}</td>
+                <td>{item.Contact}</td> {/* Add this line */}
                 <td>
                   <button onClick={() => handleEdit(index)}>Edit</button>
                 </td>
