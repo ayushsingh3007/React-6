@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Store } from "./Store/Store";
+import { Store } from "../Store/Store";
 
 const AddStudent = () => {
   const [newStudent, setNewStudent] = useState({
