@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { StoreProvider } from './Store'; // Adjust the path as needed
+import { StoreProvider } from './Store/Store'; // Adjust the path as needed
 import Navbar from './RouteCompo/Navbar';
 
 function App() {
