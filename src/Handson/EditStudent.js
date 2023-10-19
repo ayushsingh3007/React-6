@@ -6,11 +6,13 @@ const EditStudent = () => {
   const navigate = useNavigate();
   const { index } = useParams();
   const contextData = useContext(Store);
+
+  // Check if contextData.data[index] is available before accessing properties
   const [updateData, setUpdateData] = useState({
-    Name: contextData.data[index].Name,
-    Age: contextData.data[index].Age,
-    Course: contextData.data[index].Course,
-    Batch: contextData.data[index].Batch,
+    Name: contextData.data[index]?.Name || '',
+    Age: contextData.data[index]?.Age || '',
+    Course: contextData.data[index]?.Course || '',
+    Batch: contextData.data[index]?.Batch || '',
   });
 
   function handleChange(e) {
@@ -21,7 +23,10 @@ const EditStudent = () => {
   }
 
   const handleUpdate = () => {
-    contextData.data[index] = updateData;
+    // Create a copy of contextData.data and update it
+    const updatedData = [...contextData.data];
+    updatedData[index] = updateData;
+    contextData.dataFunc(updatedData);
     navigate("/student");
   };
 
