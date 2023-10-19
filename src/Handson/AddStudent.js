@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Store } from "../Store/Store";
+import React, { useContext, useState } from "react";
+import { StoreContext } from "../Store/Store";
 
 const AddStudent = () => {
   const [newStudent, setNewStudent] = useState({
@@ -7,29 +7,27 @@ const AddStudent = () => {
     Age: "",
     Course: "",
     Batch: "",
-    Contact: "Edit",
   });
 
-  const { data, dataFunc } = useContext(Store);
+  const { students, setStudents } = useContext(StoreContext);
 
   const handleChange = (e) => {
     setNewStudent({
       ...newStudent,
       [e.target.name]: e.target.value,
     });
-  };
+  }
 
   const handleAddStudent = () => {
-    const updatedData = [...data, newStudent];
-    dataFunc(updatedData);
+    const updatedStudents = [...students, newStudent];
+    setStudents(updatedStudents);
     setNewStudent({
       Name: "",
       Age: "",
       Course: "",
       Batch: "",
-      Contact: "Edit",
     });
-  };
+  }
 
   return (
     <>
