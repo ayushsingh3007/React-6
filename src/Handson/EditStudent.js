@@ -1,21 +1,20 @@
 import React, { useContext, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Store from "../Store/Store";
+import { useParams, useNavigate } from "react-router-dom";
+import { StoreContext } from "../Store/Store";
 
 const EditStudent = () => {
-  const navigate = useNavigate();
   const { index } = useParams();
-  const contextData = useContext(Store);
+  const navigate = useNavigate();
+  const { students, setStudents } = useContext(StoreContext);
 
-  // Check if contextData.data[index] is available before accessing properties
   const [updateData, setUpdateData] = useState({
-    Name: contextData.data[index]?.Name || '',
-    Age: contextData.data[index]?.Age || '',
-    Course: contextData.data[index]?.Course || '',
-    Batch: contextData.data[index]?.Batch || '',
+    Name: students[index]?.Name || '',
+    Age: students[index]?.Age || '',
+    Course: students[index]?.Course || '',
+    Batch: students[index]?.Batch || '',
   });
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setUpdateData({
       ...updateData,
       [e.target.name]: e.target.value,
@@ -23,23 +22,22 @@ const EditStudent = () => {
   }
 
   const handleUpdate = () => {
-    // Create a copy of contextData.data and update it
-    const updatedData = [...contextData.data];
-    updatedData[index] = updateData;
-    contextData.dataFunc(updatedData);
+    const updatedStudents = [...students];
+    updatedStudents[index] = updateData;
+    setStudents(updatedStudents);
     navigate("/student");
-  };
+  }
 
   return (
     <>
-      <label>Name </label>
+      <label>Name</label>
       <input
         type="text"
         name="Name"
         value={updateData.Name}
         onChange={handleChange}
       />
-      <label>Age </label>
+      <label>Age</label>
       <input
         type="number"
         name="Age"
